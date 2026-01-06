@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:presently/presentation/screens/home/home_screen.dart';
 import 'package:presently/presentation/screens/recipients/recipients_screen.dart';
 import 'package:presently/presentation/screens/settings/settings_screen.dart';
@@ -22,6 +23,9 @@ class AppRouter {
   static final GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: '/',
+    observers: [
+      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+    ],
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

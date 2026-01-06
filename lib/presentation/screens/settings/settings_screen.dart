@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:presently/core/theme/app_colors.dart';
 import 'package:presently/core/theme/app_typography.dart';
 import 'package:presently/core/constants/app_spacing.dart';
+import 'package:presently/core/providers/firebase_providers.dart';
 
 /// Settings Screen (Profile & Pro)
 /// IA: Settings Module
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  ConsumerState<SettingsScreen> createState() => _SettingsScreenState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _darkMode = false;
 
   @override
@@ -24,6 +26,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final userAsync = ref.watch(authStateChangesProvider);
+    final user = userAsync.value;
 
     return Scaffold(
       appBar: AppBar(title: Text('Settings', style: AppTypography.heading1())),
@@ -31,27 +35,45 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           // Account Section
           _buildSectionHeader('Account', isDark),
-          _buildListTile(
-            context,
-            Icons.email_outlined,
-            'Email',
-            'Not signed in',
-            isDark,
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Sign in coming soon!')),
-              );
-            },
-          ),
-          _buildListTile(
-            context,
-            Icons.logout,
-            'Sign Out',
-            null,
-            isDark,
-            onTap: () {},
-            enabled: false,
-          ),
+          if (user == null)
+            _buildListTile(
+              context,
+              Icons.login,
+              'Sign In Anonymously',
+              'Tap to sign in for testing',
+              isDark,
+              onTap: () async {
+                try {
+                  await ref.read(firebaseAuthProvider).signInAnonymously();
+                } catch (e) {
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(SnackBar(content: Text('Error: $e')));
+                  }
+                }
+              },
+            )
+          else ...[
+            _buildListTile(
+              context,
+              Icons.account_circle,
+              'User ID',
+              user.uid,
+              isDark,
+              onTap: () {}, // Copy to clipboard?
+            ),
+            _buildListTile(
+              context,
+              Icons.logout,
+              'Sign Out',
+              null,
+              isDark,
+              onTap: () async {
+                await ref.read(firebaseAuthProvider).signOut();
+              },
+            ),
+          ],
 
           const Divider(),
 
@@ -191,7 +213,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     String title,
     String? subtitle,
     bool isDark, {
-    VoidCallback? onTap,
+    required VoidCallback onTap,
     bool enabled = true,
   }) {
     return ListTile(
