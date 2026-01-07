@@ -1,61 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 /// Presently 앱의 타이포그래피 시스템
-/// Design System v1.0 기반
-/// - Headings: Playfair Display (Serif, 큐레이션된 매거진 느낌)
-/// - Body & UI: Inter (Sans-serif, 현대적 인터페이스)
+/// Design System v1.0 기반 (Pretendard 폰트 사용)
+/// - Pretendard: 한국어와 영어 모두에 최적화된 폰트
+/// - Google Fonts 대신 로컬 폰트 사용하여 성능 향상
 class AppTypography {
   AppTypography._();
 
+  // Pretendard 폰트 패밀리
+  static const String _fontFamily = 'Pretendard';
+
   // ============================================================
-  // Display Styles (Playfair Display)
+  // Display Styles
   // ============================================================
 
   /// Display - 32pt Bold
   /// 홈 화면 인사말 등에 사용
-  static TextStyle display({Color? color}) => GoogleFonts.playfairDisplay(
+  static TextStyle display({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 32,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: color,
     letterSpacing: -0.5,
+    height: 1.3,
   );
 
   // ============================================================
-  // Heading Styles (Playfair Display)
+  // Heading Styles
   // ============================================================
 
   /// Heading 1 - 24pt Semi-bold
   /// 섹션 타이틀
-  static TextStyle heading1({Color? color}) => GoogleFonts.playfairDisplay(
+  static TextStyle heading1({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 24,
     fontWeight: FontWeight.w600,
     color: color,
     letterSpacing: -0.3,
+    height: 1.3,
   );
 
   /// Heading 2 - 20pt Semi-bold
-  static TextStyle heading2({Color? color}) => GoogleFonts.playfairDisplay(
+  static TextStyle heading2({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 20,
     fontWeight: FontWeight.w600,
     color: color,
     letterSpacing: -0.2,
+    height: 1.4,
   );
 
   /// Heading 3 - 18pt Medium
-  static TextStyle heading3({Color? color}) => GoogleFonts.playfairDisplay(
+  static TextStyle heading3({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 18,
     fontWeight: FontWeight.w500,
     color: color,
+    height: 1.4,
   );
 
   // ============================================================
-  // Body Styles (Inter)
+  // Body Styles
   // ============================================================
 
   /// Body - 16pt Regular
   /// 추천 사유, 설명글
-  static TextStyle body({Color? color}) => GoogleFonts.inter(
+  static TextStyle body({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: color,
@@ -63,15 +74,17 @@ class AppTypography {
   );
 
   /// Body Bold - 16pt Bold
-  static TextStyle bodyBold({Color? color}) => GoogleFonts.inter(
+  static TextStyle bodyBold({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: color,
     height: 1.5,
   );
 
   /// Body Medium - 16pt Medium
-  static TextStyle bodyMedium({Color? color}) => GoogleFonts.inter(
+  static TextStyle bodyMedium({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: color,
@@ -79,7 +92,8 @@ class AppTypography {
   );
 
   /// Body Small - 14pt Regular
-  static TextStyle bodySmall({Color? color}) => GoogleFonts.inter(
+  static TextStyle bodySmall({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: color,
@@ -87,12 +101,13 @@ class AppTypography {
   );
 
   // ============================================================
-  // Caption & Label Styles (Inter)
+  // Caption & Label Styles
   // ============================================================
 
   /// Caption - 12pt Medium
   /// 부가 정보, 태그
-  static TextStyle caption({Color? color}) => GoogleFonts.inter(
+  static TextStyle caption({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 12,
     fontWeight: FontWeight.w500,
     color: color,
@@ -100,7 +115,8 @@ class AppTypography {
   );
 
   /// Caption Small - 10pt Medium
-  static TextStyle captionSmall({Color? color}) => GoogleFonts.inter(
+  static TextStyle captionSmall({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 10,
     fontWeight: FontWeight.w500,
     color: color,
@@ -109,7 +125,8 @@ class AppTypography {
 
   /// Label - 14pt Semi-bold
   /// 버튼 텍스트 등
-  static TextStyle label({Color? color}) => GoogleFonts.inter(
+  static TextStyle label({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 14,
     fontWeight: FontWeight.w600,
     color: color,
@@ -117,7 +134,8 @@ class AppTypography {
   );
 
   /// Label Large - 16pt Semi-bold
-  static TextStyle labelLarge({Color? color}) => GoogleFonts.inter(
+  static TextStyle labelLarge({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: color,
@@ -130,7 +148,8 @@ class AppTypography {
 
   /// AI Comment - Italic
   /// AI 코멘트용 이탤릭 스타일
-  static TextStyle aiComment({Color? color}) => GoogleFonts.inter(
+  static TextStyle aiComment({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.italic,
@@ -140,17 +159,19 @@ class AppTypography {
 
   /// Price Indicator - 18pt Bold
   /// $$$ 가격 표시
-  static TextStyle priceIndicator({Color? color}) => GoogleFonts.inter(
+  static TextStyle priceIndicator({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 18,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: color,
     letterSpacing: 0.5,
   );
 
   /// Button Text - 14pt Bold
-  static TextStyle button({Color? color}) => GoogleFonts.inter(
+  static TextStyle button({Color? color}) => TextStyle(
+    fontFamily: _fontFamily,
     fontSize: 14,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     color: color,
     letterSpacing: 0.5,
   );

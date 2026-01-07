@@ -4,6 +4,8 @@ import 'package:presently/core/theme/app_colors.dart';
 import 'package:presently/core/theme/app_typography.dart';
 import 'package:presently/core/constants/app_spacing.dart';
 import 'package:presently/core/providers/firebase_providers.dart';
+import 'package:presently/core/providers/locale_provider.dart';
+import 'package:presently/l10n/app_localizations.dart';
 
 /// Settings Screen (Profile & Pro)
 /// IA: Settings Module
@@ -28,37 +30,45 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final userAsync = ref.watch(authStateChangesProvider);
     final user = userAsync.value;
+    final l10n = AppLocalizations.of(context);
+    final currentLocale = ref.watch(localeProvider);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Settings', style: AppTypography.heading1())),
+      appBar: AppBar(
+        title: Text(l10n.settingsTitle, style: AppTypography.heading1()),
+      ),
       body: ListView(
         children: [
           // Account Section
-          _buildSectionHeader('Account', isDark),
+          _buildSectionHeader(l10n.account, isDark),
           if (user == null)
             _buildListTile(
               context,
               Icons.login,
-              'Sign In Anonymously',
-              'Tap to sign in for testing',
+              l10n.signInAnonymously,
+              l10n.tapToSignIn,
               isDark,
               onTap: () async {
                 try {
                   await ref.read(firebaseAuthProvider).signInAnonymously();
                 } catch (e) {
                   if (context.mounted) {
-                    ScaffoldMessenger.of(
-                      context,
-                    ).showSnackBar(SnackBar(content: Text('Error: $e')));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          l10n.errorPrefix(e.toString()),
+                        ),
+                      ),
+                    );
                   }
                 }
               },
             )
-          else ...[
+          else ...{
             _buildListTile(
               context,
               Icons.account_circle,
-              'User ID',
+              l10n.userId,
               user.uid,
               isDark,
               onTap: () {}, // Copy to clipboard?
@@ -66,35 +76,35 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             _buildListTile(
               context,
               Icons.logout,
-              'Sign Out',
+              l10n.signOut,
               null,
               isDark,
               onTap: () async {
                 await ref.read(firebaseAuthProvider).signOut();
               },
             ),
-          ],
+          },
 
           const Divider(),
 
           // Subscription Section
-          _buildSectionHeader('Subscription', isDark),
+          _buildSectionHeader(l10n.subscription, isDark),
           _buildListTile(
             context,
             Icons.workspace_premium,
-            'Go Pro',
-            'Unlock all features',
+            l10n.goPro,
+            l10n.unlockAllFeatures,
             isDark,
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Go Pro coming soon!')),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(l10n.goProComingSoon)));
             },
           ),
           _buildListTile(
             context,
             Icons.restore,
-            'Restore Purchase',
+            l10n.restorePurchase,
             null,
             isDark,
             onTap: () {},
@@ -104,10 +114,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           const Divider(),
 
           // Preferences Section
-          _buildSectionHeader('Preferences', isDark),
+          _buildSectionHeader(l10n.preferences, isDark),
+
+          // Language Setting
+          _buildListTile(
+            context,
+            Icons.language,
+            l10n.language,
+            currentLocale.languageCode == 'ko' ? l10n.korean : l10n.english,
+            isDark,
+            onTap: () => _showLanguageDialog(context, l10n),
+          ),
+
           _buildSwitchTile(
-            'Dark Mode',
-            'Toggle dark theme',
+            l10n.darkMode,
+            l10n.toggleDarkTheme,
             _darkMode,
             isDark,
             (value) {
@@ -115,23 +136,19 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 _darkMode = value;
               });
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'Theme change will be supported in future update',
-                  ),
-                ),
+                SnackBar(content: Text(l10n.themeChangeComingSoon)),
               );
             },
           ),
           _buildListTile(
             context,
             Icons.notifications_outlined,
-            'Notifications',
-            'Manage reminders',
+            l10n.notifications,
+            l10n.manageReminders,
             isDark,
             onTap: () {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Notifications coming soon!')),
+                SnackBar(content: Text(l10n.notificationsComingSoon)),
               );
             },
           ),
@@ -139,11 +156,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           const Divider(),
 
           // Legal & Support Section
-          _buildSectionHeader('Legal & Support', isDark),
+          _buildSectionHeader(l10n.legalAndSupport, isDark),
           _buildListTile(
             context,
             Icons.privacy_tip_outlined,
-            'Privacy Policy',
+            l10n.privacyPolicy,
             null,
             isDark,
             onTap: () {},
@@ -152,7 +169,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           _buildListTile(
             context,
             Icons.description_outlined,
-            'Terms of Service',
+            l10n.termsOfService,
             null,
             isDark,
             onTap: () {},
@@ -161,7 +178,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           _buildListTile(
             context,
             Icons.help_outline,
-            'Contact Support',
+            l10n.contactSupport,
             null,
             isDark,
             onTap: () {},
@@ -173,7 +190,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           // App Version
           Center(
             child: Text(
-              'Version 0.1.0',
+              l10n.version('0.1.0'),
               style: AppTypography.caption(
                 color:
                     (isDark
@@ -187,6 +204,47 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           const SizedBox(height: AppSpacing.l),
         ],
       ),
+    );
+  }
+
+  /// 언어 선택 다이얼로그 표시
+  void _showLanguageDialog(BuildContext context, AppLocalizations l10n) {
+    final currentLocale = ref.read(localeProvider);
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(l10n.chooseLanguage),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RadioListTile<String>(
+                title: Text(l10n.korean),
+                value: 'ko',
+                groupValue: currentLocale.languageCode,
+                onChanged: (value) {
+                  if (value != null) {
+                    ref.read(localeProvider.notifier).setKorean();
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+              RadioListTile<String>(
+                title: Text(l10n.english),
+                value: 'en',
+                groupValue: currentLocale.languageCode,
+                onChanged: (value) {
+                  if (value != null) {
+                    ref.read(localeProvider.notifier).setEnglish();
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presently/core/theme/app_colors.dart';
 import 'package:presently/core/theme/app_typography.dart';
 import 'package:presently/core/constants/app_spacing.dart';
+import 'package:presently/l10n/app_localizations.dart';
 
 /// Recipients Screen (Gift CRM)
 /// IA: Recipients Module
@@ -11,10 +12,11 @@ class RecipientsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Recipients', style: AppTypography.heading1()),
+        title: Text(l10n.recipientsTitle, style: AppTypography.heading1()),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -28,17 +30,18 @@ class RecipientsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           // TODO: Navigate to Add Recipient
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Add Recipient coming soon!')),
-          );
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(l10n.addRecipientComingSoon)));
         },
         icon: const Icon(Icons.person_add),
-        label: const Text('Add Recipient'),
+        label: Text(l10n.addRecipient),
       ),
     );
   }
 
   Widget _buildEmptyState(BuildContext context, bool isDark) {
+    final l10n = AppLocalizations.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(AppSpacing.xl),
@@ -54,7 +57,7 @@ class RecipientsScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.l),
             Text(
-              'No Recipients Yet',
+              l10n.noRecipientsYet,
               style: AppTypography.heading2(
                 color: isDark
                     ? AppColors.darkOnSurface
@@ -63,7 +66,7 @@ class RecipientsScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.s),
             Text(
-              'Add people you buy gifts for to keep track of their preferences, upcoming events, and gift history',
+              l10n.noRecipientsDesc,
               style: AppTypography.body(
                 color:
                     (isDark
@@ -77,11 +80,11 @@ class RecipientsScreen extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Add Recipient coming soon!')),
+                  SnackBar(content: Text(l10n.addRecipientComingSoon)),
                 );
               },
               icon: const Icon(Icons.person_add),
-              label: const Text('Add Your First Recipient'),
+              label: Text(l10n.addFirstRecipient),
             ),
           ],
         ),

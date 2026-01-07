@@ -3,6 +3,7 @@ import 'package:presently/core/theme/app_colors.dart';
 import 'package:presently/core/theme/app_typography.dart';
 import 'package:presently/core/constants/app_spacing.dart';
 import 'package:presently/presentation/widgets/app_buttons.dart';
+import 'package:presently/l10n/app_localizations.dart';
 
 /// Home Screen (Dashboard)
 /// IA: Home Module - The Hub
@@ -12,10 +13,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Presently', style: AppTypography.heading1()),
+        title: Text(l10n.appTitle, style: AppTypography.heading1()),
         actions: [
           // Pro Status Badge Placeholder
           Container(
@@ -30,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
-              'Free',
+              l10n.free,
               style: AppTypography.caption(
                 color: isDark ? AppColors.darkPrimary : AppColors.primary,
               ),
@@ -44,7 +46,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 1.1. Header - User Greeting
-            _buildGreetingSection(isDark),
+            _buildGreetingSection(context, isDark),
 
             const SizedBox(height: AppSpacing.xl),
 
@@ -54,29 +56,30 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.xl),
 
             // 1.3. Upcoming Events Widget
-            _buildUpcomingEventsSection(isDark),
+            _buildUpcomingEventsSection(context, isDark),
 
             const SizedBox(height: AppSpacing.xl),
 
             // 1.4. Recent Recommendations
-            _buildRecentRecommendationsSection(isDark),
+            _buildRecentRecommendationsSection(context, isDark),
 
             const SizedBox(height: AppSpacing.xl),
 
             // 1.5. Ad Placement (placeholder)
-            _buildAdPlaceholder(isDark),
+            _buildAdPlaceholder(context, isDark),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildGreetingSection(bool isDark) {
+  Widget _buildGreetingSection(BuildContext context, bool isDark) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Hello, there! 👋',
+          l10n.homeGreeting,
           style: AppTypography.display(
             color: isDark
                 ? AppColors.darkOnBackground
@@ -85,7 +88,7 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.s),
         Text(
-          'What gift are you looking for today?',
+          l10n.homeSubtitle,
           style: AppTypography.body(
             color:
                 (isDark
@@ -99,20 +102,22 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildPrimaryCTA(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return PrimaryButton(
-      text: 'Find a Gift',
+      text: l10n.findGift,
       icon: const Icon(Icons.card_giftcard),
       onPressed: () {
         // TODO: Navigate to Gift Profiler
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Gift Profiler coming soon!')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(l10n.giftProfilerComingSoon)));
       },
       fullWidth: true,
     );
   }
 
-  Widget _buildUpcomingEventsSection(bool isDark) {
+  Widget _buildUpcomingEventsSection(BuildContext context, bool isDark) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -120,7 +125,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'Upcoming Events',
+              l10n.upcomingEvents,
               style: AppTypography.heading2(
                 color: isDark
                     ? AppColors.darkOnBackground
@@ -131,26 +136,28 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 // TODO: Navigate to Recipients
               },
-              child: const Text('See All'),
+              child: Text(l10n.seeAll),
             ),
           ],
         ),
         const SizedBox(height: AppSpacing.m),
         _buildEmptyState(
+          context,
           isDark,
-          'No upcoming events',
-          'Add recipients to see their birthdays and anniversaries here',
+          l10n.noUpcomingEvents,
+          l10n.noUpcomingEventsDesc,
         ),
       ],
     );
   }
 
-  Widget _buildRecentRecommendationsSection(bool isDark) {
+  Widget _buildRecentRecommendationsSection(BuildContext context, bool isDark) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Recent Recommendations',
+          l10n.recentRecommendations,
           style: AppTypography.heading2(
             color: isDark
                 ? AppColors.darkOnBackground
@@ -159,15 +166,17 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(height: AppSpacing.m),
         _buildEmptyState(
+          context,
           isDark,
-          'No recommendations yet',
-          'Find a gift to see AI-curated recommendations here',
+          l10n.noRecommendations,
+          l10n.noRecommendationsDesc,
         ),
       ],
     );
   }
 
-  Widget _buildAdPlaceholder(bool isDark) {
+  Widget _buildAdPlaceholder(BuildContext context, bool isDark) {
+    final l10n = AppLocalizations.of(context);
     return Container(
       height: 60,
       decoration: BoxDecoration(
@@ -182,7 +191,7 @@ class HomeScreen extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(
-        'Ad Placement',
+        l10n.adPlacement,
         style: AppTypography.caption(
           color: (isDark ? AppColors.darkOnSurface : AppColors.lightOnSurface)
               .withValues(alpha: 0.5),
@@ -191,7 +200,12 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildEmptyState(bool isDark, String title, String subtitle) {
+  Widget _buildEmptyState(
+    BuildContext context,
+    bool isDark,
+    String title,
+    String subtitle,
+  ) {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.l),
       decoration: BoxDecoration(

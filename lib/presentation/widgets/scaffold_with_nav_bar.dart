@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:presently/core/theme/app_colors.dart';
 import 'package:presently/core/constants/app_icon_size.dart';
+import 'package:presently/l10n/app_localizations.dart';
 
 /// Scaffold with Bottom Navigation Bar
 /// Used with StatefulShellRoute for maintaining state across tabs
@@ -13,6 +14,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       body: navigationShell,
@@ -27,21 +29,21 @@ class ScaffoldWithNavBar extends StatelessWidget {
         selectedFontSize: 12,
         unselectedFontSize: 12,
         iconSize: AppIconSize.bottomNav,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            activeIcon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home_outlined),
+            activeIcon: const Icon(Icons.home),
+            label: l10n.navHome,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people_outline),
-            activeIcon: Icon(Icons.people),
-            label: 'Recipients',
+            icon: const Icon(Icons.people_outline),
+            activeIcon: const Icon(Icons.people),
+            label: l10n.navRecipients,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            activeIcon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            activeIcon: const Icon(Icons.settings),
+            label: l10n.navSettings,
           ),
         ],
       ),
@@ -52,11 +54,11 @@ class ScaffoldWithNavBar extends StatelessWidget {
               onPressed: () {
                 // TODO: Navigate to Gift Profiler
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Gift Profiler coming soon!')),
+                  SnackBar(content: Text(l10n.giftProfilerComingSoon)),
                 );
               },
               icon: const Icon(Icons.card_giftcard),
-              label: const Text('Find a Gift'),
+              label: Text(l10n.findGift),
             )
           : null,
     );

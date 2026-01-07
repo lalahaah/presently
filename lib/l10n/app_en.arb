@@ -1,0 +1,274 @@
+{
+  "@@locale": "en",
+  
+  "appTitle": "Presently",
+  "@appTitle": {
+    "description": "Application title"
+  },
+
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Bottom navigation label for Home tab"
+  },
+
+  "navRecipients": "Recipients",
+  "@navRecipients": {
+    "description": "Bottom navigation label for Recipients tab"
+  },
+
+  "navSettings": "Settings",
+  "@navSettings": {
+    "description": "Bottom navigation label for Settings tab"
+  },
+
+  "findGift": "Find a Gift",
+  "@findGift": {
+    "description": "Button text for finding a gift"
+  },
+
+  "homeGreeting": "Hello, there! 👋",
+  "@homeGreeting": {
+    "description": "Greeting message on home screen"
+  },
+
+  "homeSubtitle": "What gift are you looking for today?",
+  "@homeSubtitle": {
+    "description": "Subtitle on home screen"
+  },
+
+  "upcomingEvents": "Upcoming Events",
+  "@upcomingEvents": {
+    "description": "Section title for upcoming events"
+  },
+
+  "seeAll": "See All",
+  "@seeAll": {
+    "description": "Button text to see all items"
+  },
+
+  "noUpcomingEvents": "No upcoming events",
+  "@noUpcomingEvents": {
+    "description": "Empty state title for upcoming events"
+  },
+
+  "noUpcomingEventsDesc": "Add recipients to see their birthdays and anniversaries here",
+  "@noUpcomingEventsDesc": {
+    "description": "Empty state description for upcoming events"
+  },
+
+  "recentRecommendations": "Recent Recommendations",
+  "@recentRecommendations": {
+    "description": "Section title for recent recommendations"
+  },
+
+  "noRecommendations": "No recommendations yet",
+  "@noRecommendations": {
+    "description": "Empty state title for recommendations"
+  },
+
+  "noRecommendationsDesc": "Find a gift to see AI-curated recommendations here",
+  "@noRecommendationsDesc": {
+    "description": "Empty state description for recommendations"
+  },
+
+  "adPlacement": "Ad Placement",
+  "@adPlacement": {
+    "description": "Placeholder text for ad placement"
+  },
+
+  "free": "Free",
+  "@free": {
+    "description": "Free tier badge label"
+  },
+
+  "recipientsTitle": "Recipients",
+  "@recipientsTitle": {
+    "description": "Recipients screen title"
+  },
+
+  "noRecipientsYet": "No Recipients Yet",
+  "@noRecipientsYet": {
+    "description": "Empty state title for recipients"
+  },
+
+  "noRecipientsDesc": "Add people you buy gifts for to keep track of their preferences, upcoming events, and gift history",
+  "@noRecipientsDesc": {
+    "description": "Empty state description for recipients"
+  },
+
+  "addRecipient": "Add Recipient",
+  "@addRecipient": {
+    "description": "Button text to add a recipient"
+  },
+
+  "addFirstRecipient": "Add Your First Recipient",
+  "@addFirstRecipient": {
+    "description": "Button text to add first recipient"
+  },
+
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Settings screen title"
+  },
+
+  "account": "Account",
+  "@account": {
+    "description": "Account section header"
+  },
+
+  "signInAnonymously": "Sign In Anonymously",
+  "@signInAnonymously": {
+    "description": "Sign in anonymously button text"
+  },
+
+  "tapToSignIn": "Tap to sign in for testing",
+  "@tapToSignIn": {
+    "description": "Sign in subtitle"
+  },
+
+  "userId": "User ID",
+  "@userId": {
+    "description": "User ID label"
+  },
+
+  "signOut": "Sign Out",
+  "@signOut": {
+    "description": "Sign out button text"
+  },
+
+  "subscription": "Subscription",
+  "@subscription": {
+    "description": "Subscription section header"
+  },
+
+  "goPro": "Go Pro",
+  "@goPro": {
+    "description": "Go Pro button text"
+  },
+
+  "unlockAllFeatures": "Unlock all features",
+  "@unlockAllFeatures": {
+    "description": "Go Pro subtitle"
+  },
+
+  "restorePurchase": "Restore Purchase",
+  "@restorePurchase": {
+    "description": "Restore purchase button text"
+  },
+
+  "preferences": "Preferences",
+  "@preferences": {
+    "description": "Preferences section header"
+  },
+
+  "language": "Language",
+  "@language": {
+    "description": "Language setting label"
+  },
+
+  "selectLanguage": "Select language",
+  "@selectLanguage": {
+    "description": "Language setting subtitle"
+  },
+
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Dark mode switch label"
+  },
+
+  "toggleDarkTheme": "Toggle dark theme",
+  "@toggleDarkTheme": {
+    "description": "Dark mode switch subtitle"
+  },
+
+  "notifications": "Notifications",
+  "@notifications": {
+    "description": "Notifications setting label"
+  },
+
+  "manageReminders": "Manage reminders",
+  "@manageReminders": {
+    "description": "Notifications setting subtitle"
+  },
+
+  "legalAndSupport": "Legal & Support",
+  "@legalAndSupport": {
+    "description": "Legal and support section header"
+  },
+
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Privacy policy label"
+  },
+
+  "termsOfService": "Terms of Service",
+  "@termsOfService": {
+    "description": "Terms of service label"
+  },
+
+  "contactSupport": "Contact Support",
+  "@contactSupport": {
+    "description": "Contact support label"
+  },
+
+  "version": "Version {version}",
+  "@version": {
+    "description": "App version label",
+    "placeholders": {
+      "version": {
+        "type": "String",
+        "example": "0.1.0"
+      }
+    }
+  },
+
+  "giftProfilerComingSoon": "Gift Profiler coming soon!",
+  "@giftProfilerComingSoon": {
+    "description": "Snackbar message for gift profiler"
+  },
+
+  "goProComingSoon": "Go Pro coming soon!",
+  "@goProComingSoon": {
+    "description": "Snackbar message for go pro"
+  },
+
+  "addRecipientComingSoon": "Add Recipient coming soon!",
+  "@addRecipientComingSoon": {
+    "description": "Snackbar message for add recipient"
+  },
+
+  "themeChangeComingSoon": "Theme change will be supported in future update",
+  "@themeChangeComingSoon": {
+    "description": "Snackbar message for theme change"
+  },
+
+  "notificationsComingSoon": "Notifications coming soon!",
+  "@notificationsComingSoon": {
+    "description": "Snackbar message for notifications"
+  },
+
+  "errorPrefix": "Error: {error}",
+  "@errorPrefix": {
+    "description": "Error message prefix",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+
+  "korean": "한국어",
+  "@korean": {
+    "description": "Korean language name"
+  },
+
+  "english": "English",
+  "@english": {
+    "description": "English language name"
+  },
+
+  "chooseLanguage": "Choose Language",
+  "@chooseLanguage": {
+    "description": "Language selection dialog title"
+  }
+}
