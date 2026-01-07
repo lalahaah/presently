@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'firebase_options.dart';
@@ -14,6 +15,10 @@ void main() async {
 
   // Firebase 초기화
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // 애드몹 SDK 초기화
+  // TODO: 실제 배포 전 AdMob 앱 ID를 설정해야 함 (Info.plist, AndroidManifest.xml)
+  await MobileAds.instance.initialize();
 
   // SharedPreferences 초기화
   final prefs = await SharedPreferences.getInstance();

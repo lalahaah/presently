@@ -409,6 +409,414 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose Language'**
   String get chooseLanguage;
+
+  /// No description provided for @giftProfiler.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift Profiler'**
+  String get giftProfiler;
+
+  /// No description provided for @step.
+  ///
+  /// In en, this message translates to:
+  /// **'Step'**
+  String get step;
+
+  /// No description provided for @stepOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{current} / {total}'**
+  String stepOf(Object current, Object total);
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @previous.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previous;
+
+  /// No description provided for @analyzeAndFind.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Gifts'**
+  String get analyzeAndFind;
+
+  /// No description provided for @step1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Who is this gift for?'**
+  String get step1Title;
+
+  /// No description provided for @step1Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your relationship with the recipient'**
+  String get step1Subtitle;
+
+  /// No description provided for @relationshipSpouse.
+  ///
+  /// In en, this message translates to:
+  /// **'Spouse'**
+  String get relationshipSpouse;
+
+  /// No description provided for @relationshipPartner.
+  ///
+  /// In en, this message translates to:
+  /// **'Partner'**
+  String get relationshipPartner;
+
+  /// No description provided for @relationshipFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend'**
+  String get relationshipFriend;
+
+  /// No description provided for @relationshipParent.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent'**
+  String get relationshipParent;
+
+  /// No description provided for @relationshipSibling.
+  ///
+  /// In en, this message translates to:
+  /// **'Sibling'**
+  String get relationshipSibling;
+
+  /// No description provided for @relationshipChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Child'**
+  String get relationshipChild;
+
+  /// No description provided for @relationshipColleague.
+  ///
+  /// In en, this message translates to:
+  /// **'Colleague'**
+  String get relationshipColleague;
+
+  /// No description provided for @relationshipBoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Boss'**
+  String get relationshipBoss;
+
+  /// No description provided for @relationshipTeacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher'**
+  String get relationshipTeacher;
+
+  /// No description provided for @relationshipOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get relationshipOther;
+
+  /// No description provided for @step2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'What are they like?'**
+  String get step2Title;
+
+  /// No description provided for @step2Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select personality traits (up to 5)'**
+  String get step2Subtitle;
+
+  /// No description provided for @personalitySection.
+  ///
+  /// In en, this message translates to:
+  /// **'Personality Traits'**
+  String get personalitySection;
+
+  /// No description provided for @mbtiSection.
+  ///
+  /// In en, this message translates to:
+  /// **'MBTI (Optional)'**
+  String get mbtiSection;
+
+  /// No description provided for @selectMbti.
+  ///
+  /// In en, this message translates to:
+  /// **'Select MBTI'**
+  String get selectMbti;
+
+  /// No description provided for @traitTechie.
+  ///
+  /// In en, this message translates to:
+  /// **'Techie'**
+  String get traitTechie;
+
+  /// No description provided for @traitMinimalist.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimalist'**
+  String get traitMinimalist;
+
+  /// No description provided for @traitOutdoorsy.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdoorsy'**
+  String get traitOutdoorsy;
+
+  /// No description provided for @traitArtistic.
+  ///
+  /// In en, this message translates to:
+  /// **'Artistic'**
+  String get traitArtistic;
+
+  /// No description provided for @traitFoodie.
+  ///
+  /// In en, this message translates to:
+  /// **'Foodie'**
+  String get traitFoodie;
+
+  /// No description provided for @traitBookworm.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookworm'**
+  String get traitBookworm;
+
+  /// No description provided for @traitFitness.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness Enthusiast'**
+  String get traitFitness;
+
+  /// No description provided for @traitFashionable.
+  ///
+  /// In en, this message translates to:
+  /// **'Fashionable'**
+  String get traitFashionable;
+
+  /// No description provided for @traitHomebody.
+  ///
+  /// In en, this message translates to:
+  /// **'Homebody'**
+  String get traitHomebody;
+
+  /// No description provided for @traitAdventurous.
+  ///
+  /// In en, this message translates to:
+  /// **'Adventurous'**
+  String get traitAdventurous;
+
+  /// No description provided for @traitEcoFriendly.
+  ///
+  /// In en, this message translates to:
+  /// **'Eco-Friendly'**
+  String get traitEcoFriendly;
+
+  /// No description provided for @traitPractical.
+  ///
+  /// In en, this message translates to:
+  /// **'Practical'**
+  String get traitPractical;
+
+  /// No description provided for @step3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s the occasion?'**
+  String get step3Title;
+
+  /// No description provided for @step3Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell us why you\'re giving this gift'**
+  String get step3Subtitle;
+
+  /// No description provided for @occasionBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get occasionBirthday;
+
+  /// No description provided for @occasionAnniversary.
+  ///
+  /// In en, this message translates to:
+  /// **'Anniversary'**
+  String get occasionAnniversary;
+
+  /// No description provided for @occasionWedding.
+  ///
+  /// In en, this message translates to:
+  /// **'Wedding'**
+  String get occasionWedding;
+
+  /// No description provided for @occasionGraduation.
+  ///
+  /// In en, this message translates to:
+  /// **'Graduation'**
+  String get occasionGraduation;
+
+  /// No description provided for @occasionPromotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Promotion'**
+  String get occasionPromotion;
+
+  /// No description provided for @occasionHousewarming.
+  ///
+  /// In en, this message translates to:
+  /// **'Housewarming'**
+  String get occasionHousewarming;
+
+  /// No description provided for @occasionApology.
+  ///
+  /// In en, this message translates to:
+  /// **'Apology'**
+  String get occasionApology;
+
+  /// No description provided for @occasionThankYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank You'**
+  String get occasionThankYou;
+
+  /// No description provided for @occasionJustBecause.
+  ///
+  /// In en, this message translates to:
+  /// **'Just Because'**
+  String get occasionJustBecause;
+
+  /// No description provided for @occasionOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get occasionOther;
+
+  /// No description provided for @contextPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g., Recently started yoga'**
+  String get contextPlaceholder;
+
+  /// No description provided for @contextLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional Context (Optional)'**
+  String get contextLabel;
+
+  /// No description provided for @contextHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Anything special you\'d like us to know?'**
+  String get contextHint;
+
+  /// No description provided for @step4Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your budget'**
+  String get step4Title;
+
+  /// No description provided for @step4Subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How much are you looking to spend?'**
+  String get step4Subtitle;
+
+  /// No description provided for @budgetRange.
+  ///
+  /// In en, this message translates to:
+  /// **'₩{min} ~ ₩{max}'**
+  String budgetRange(Object max, Object min);
+
+  /// No description provided for @budgetPlus.
+  ///
+  /// In en, this message translates to:
+  /// **'₩{amount}+'**
+  String budgetPlus(Object amount);
+
+  /// No description provided for @aiAnalyzing.
+  ///
+  /// In en, this message translates to:
+  /// **'AI is finding gifts...'**
+  String get aiAnalyzing;
+
+  /// No description provided for @aiSearching.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching 1,000+ items on Coupang...'**
+  String get aiSearching;
+
+  /// No description provided for @aiAnalyzingTaste.
+  ///
+  /// In en, this message translates to:
+  /// **'Analyzing recipient\'s taste...'**
+  String get aiAnalyzingTaste;
+
+  /// No description provided for @aiFindingPerfect.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding the perfect gift...'**
+  String get aiFindingPerfect;
+
+  /// No description provided for @recommendationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AI-Curated Recommendations'**
+  String get recommendationsTitle;
+
+  /// No description provided for @recommendationsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a gift you like'**
+  String get recommendationsSubtitle;
+
+  /// No description provided for @viewOnCoupang.
+  ///
+  /// In en, this message translates to:
+  /// **'View on Coupang'**
+  String get viewOnCoupang;
+
+  /// No description provided for @copyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Message'**
+  String get copyMessage;
+
+  /// No description provided for @messageCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Message copied!'**
+  String get messageCopied;
+
+  /// No description provided for @giftMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift Message'**
+  String get giftMessage;
+
+  /// No description provided for @aiReasoning.
+  ///
+  /// In en, this message translates to:
+  /// **'Why this gift'**
+  String get aiReasoning;
+
+  /// No description provided for @estimatedPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Estimated Price'**
+  String get estimatedPrice;
+
+  /// No description provided for @saveRecommendation.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Recommendation'**
+  String get saveRecommendation;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try Again'**
+  String get tryAgain;
 }
 
 class _AppLocalizationsDelegate

@@ -27,16 +27,6 @@ class RecipientsScreen extends StatelessWidget {
         ],
       ),
       body: _buildEmptyState(context, isDark),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          // TODO: Navigate to Add Recipient
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(l10n.addRecipientComingSoon)));
-        },
-        icon: const Icon(Icons.person_add),
-        label: Text(l10n.addRecipient),
-      ),
     );
   }
 

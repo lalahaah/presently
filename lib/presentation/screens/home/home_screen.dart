@@ -4,6 +4,7 @@ import 'package:presently/core/theme/app_typography.dart';
 import 'package:presently/core/constants/app_spacing.dart';
 import 'package:presently/presentation/widgets/app_buttons.dart';
 import 'package:presently/l10n/app_localizations.dart';
+import 'package:presently/presentation/screens/gift_profiler/gift_profiler_screen.dart';
 
 /// Home Screen (Dashboard)
 /// IA: Home Module - The Hub
@@ -107,10 +108,10 @@ class HomeScreen extends StatelessWidget {
       text: l10n.findGift,
       icon: const Icon(Icons.card_giftcard),
       onPressed: () {
-        // TODO: Navigate to Gift Profiler
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(l10n.giftProfilerComingSoon)));
+        // Navigate to Gift Profiler
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const GiftProfilerScreen()),
+        );
       },
       fullWidth: true,
     );

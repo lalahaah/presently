@@ -47,20 +47,6 @@ class ScaffoldWithNavBar extends StatelessWidget {
           ),
         ],
       ),
-
-      // FAB only on Home tab (index 0)
-      floatingActionButton: navigationShell.currentIndex == 0
-          ? FloatingActionButton.extended(
-              onPressed: () {
-                // TODO: Navigate to Gift Profiler
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.giftProfilerComingSoon)),
-                );
-              },
-              icon: const Icon(Icons.card_giftcard),
-              label: Text(l10n.findGift),
-            )
-          : null,
     );
   }
 
